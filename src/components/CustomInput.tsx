@@ -42,7 +42,7 @@ function CustomInput({manufacturer,setManufacturer,errorInInput}:CustomInputProp
                         { query && filteredList.map(option=>
                             (<Combobox.Option
                             className={({active})=>`search-manufacturer__option w-full  ${active ? 'bg-primary-blue text-white': 'bg-white text-gray-900' }`}
-                            value={option}>
+                            value={option} key={option}>
                                 {({selected,active})=>(
                                     <>
                                     <span className={`block truncate ${selected ? 'font-medium': 'font-normal'}`}>{option}</span>

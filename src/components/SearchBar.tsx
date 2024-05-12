@@ -11,7 +11,7 @@ function SearchBar() {
     const [errorInInput,setErrorInInput] = useState(false)
     const router = useRouter()
     const reactSearchParams = useSearchParams()
-    console.log(reactSearchParams.toString())
+    const searchParams = reactSearchParams.toString()
     
    
     const handleSubmit = (e:FormEvent<HTMLFormElement>)=>{
@@ -47,14 +47,14 @@ function SearchBar() {
 
       if(!scrollHeightFromLocal) return
       console.log('bout to chnage height')
-      const id = setTimeout(()=> window.scrollTo(0,Number(scrollHeightFromLocal)),2000)
+      const id = setTimeout(()=> window.scrollTo(0,Number(scrollHeightFromLocal)),4000)
 
       if(window.scrollY === Number(scrollHeightFromLocal)){
           localStorage.removeItem('scrollPosition')
           setScreenScrolled(false)
         }
       return ()=> clearTimeout(id)
-    }, [screenScrolled,reactSearchParams.toString()])
+    }, [screenScrolled,searchParams])
     
         
   return (
