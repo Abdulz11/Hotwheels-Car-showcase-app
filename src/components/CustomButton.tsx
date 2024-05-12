@@ -1,18 +1,12 @@
 'use client'
-import { MouseEventHandler } from "react";
-
-type ButtonProps={
-  title:string ;
-  styles?:string;
-  handleClick?:MouseEventHandler<HTMLButtonElement>;
-}
+import { ButtonProps } from "@/types";
 
 export default function CustomButton(props:ButtonProps) {
   return (
     <>
     <button
     disabled={false}
-    type='button'
+    type={props.btnType}
     className={`custom-btn ${props.styles}`}
     onClick={props.handleClick}
     >
