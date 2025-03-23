@@ -25,7 +25,7 @@ export  default async function Home({searchParams}: { searchParams:HomeSearchPar
 
   return (
     <div>
-      <StartPage/>
+      {/* <StartPage/> */}
       <Hero/>
       <div className="mt-12 padding-x padding-y max-width flex flex-col items-center gap-4 " id='discover'>
         <h1 className="text-4xl font-extrabold" >Car Catalogue</h1>

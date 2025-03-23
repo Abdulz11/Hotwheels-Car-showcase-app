@@ -49,7 +49,7 @@ export async function getCars(
   model?: string,
   year?: string,
   fuel?: string
-): Promise<Car[]> {
+): Promise<Car[] | []> {
   const url = getSearchUrl(manufacturer, model, year, fuel);
   // const url = `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla&year=2023&limit=5`;
   try {
@@ -62,9 +62,10 @@ export async function getCars(
     return result;
   } catch (error) {
     console.log(error);
-    if (error && typeof error === "object" && "message" in error)
-      console.error(error.message);
-    throw new Error("something went wrong during fetch");
+    return [];
+    // if (error && typeof error === "object" && "message" in error)
+    //   console.error(error.message);
+    // throw new Error();
   }
 }
 
