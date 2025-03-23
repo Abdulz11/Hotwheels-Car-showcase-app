@@ -1,35 +1,23 @@
-
+'use client'
 // import Head from "next/head";
 import Link from "next/link";
 import AiCard from "./(components)/AiCard";
 import Slider from "./(components)/Slider";
 import Image from "next/image";
+import MobileMenu from "./(components)/MobileMenu";
+import Nav from "./(components)/Nav";
+import { motion } from "framer-motion";
+
 
 export default function Home() {
   return (
     <div>
-      <div className=" min-h-screen w-screen bg-green-400 md:bg-red-800 lg:bg-purple-700">
+      <div className=" min-h-screen w-screen">
         {/* Navbar */}
         <div className="bg-gradient-to-b from-black to-blue-900   text-white min-h-[630px] ">
-          <nav className="flex justify-around items-center p-6 max-w-7xl mx-auto">
-            <Link href="/" className="text-2xl font-bold">
-              <Image src="/AIPICS/main logo.png" alt="Brand Logo" width={40} height={40} />
-            </Link>
-            <ul className="hidden md:flex space-x-6 font-['Figtree']">
-              <li><Link href="/models" className="hover:text-gray-300">Models</Link></li>
-              <li><Link href="/pricing" className="hover:text-gray-300">Pricing</Link></li>
-              <li><Link href="/about" className="hover:text-gray-300">About Us</Link></li>
-              <li><Link href="/contact" className="hover:text-gray-300">Contact Us</Link></li>
-              <li><Link href="/custom-models" className="hover:text-gray-300">Custom Models</Link></li>
-            </ul>
-            <div>
-              <Link href="/login" className="mr-4 border border-white px-4 py-2 rounded-md">Login</Link>
-              <Link href="/get-started" className="bg-white text-[#05152C] px-2 md:px-4 py-2 rounded-md font-medium text-sm">Get Started Now</Link>
-            </div>
-          </nav>
-
+          <Nav />
           {/* Hero Section */}
-          <header className="text-center py-20 px-6 w-[60%]  mx-auto space-y-5 ">
+          <header className="text-center py-20 px-6 w-[60%]  mx-auto space-y-16 md:space-y-14 ">
             <p className="sm:font-bold font-medium sm:text-base text-sm font-['Plus Jakarta Sans'] text-center w-full text-[#7191FF]">Leverage on Automation</p>
             <h1 className="text-3xl md:text-6xl lg:text-7xl font-bold leading-['80px'] ">
               AI Models for Business Solutions
@@ -53,9 +41,25 @@ export default function Home() {
             </div>
         </section>
         {/* hero section 2 */}
-        <div className="flex flex-col items-center gap-y-8 md:gap-y-5 border-black border-3 my-24">
-          <h1 className="text-[#22263F] font-semibold text-5xl max-w-2xl text-center">AI Models tailored for your business needs</h1>
-          <p className="text-xl leading-7 text-[#828282] font-medium max-w-4xl text-center ">Leverage the power of AI to automate, analyze, and optimize your workflows. Our specialized models are designed to fit different business needs</p>
+        <div className="flex flex-col items-center gap-y-8 md:gap-y-16  my-24 px-14">
+          <div className=''>
+            <motion.h1
+               initial={{ opacity:0,y:40}}
+               whileInView={{opacity:1,y:0}}  
+              transition={{duration:0.5}}
+              viewport={{ once: true,amount:1 }} 
+              className="text-[#22263F] font-semibold text-3xl md:text-5xl max-w-2xl text-center">AI Models tailored for your business needs
+            </motion.h1>
+          </div>
+          <div className="">
+            <motion.p 
+              initial={{ opacity:0,y:40}}
+              whileInView={{opacity:1,y:0}} 
+              transition={{duration:0.5,delay:1}}
+              viewport={{ once: true,amount:1 }}
+              className=" text-xl leading-7 text-[#828282] font-medium max-w-2xl md:max-w-4xl text-center ">Leverage the power of AI to automate, analyze, and optimize your workflows. Our specialized models are designed to fit different business needs
+            </motion.p>
+          </div>
         </div>
 
         {/* Features Section */}

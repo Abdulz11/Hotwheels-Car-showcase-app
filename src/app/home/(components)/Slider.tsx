@@ -19,7 +19,14 @@ export default function Slider() {
 
   const handleTabClick = (id:string, index:number) => {
     setActiveTab(id);
-    setOffset(-index * 100); 
+    console.log(window.innerWidth)
+    console.log(window.innerHeight)
+    if(index + 1 == tabs.length && window.innerWidth > 800){
+         setOffset((-index * 100)-7); 
+    }else{
+
+        setOffset(-index * 100); 
+    }
   };
   
 
@@ -37,17 +44,18 @@ export default function Slider() {
         ))}
       </div>
       <div className="flex   items-center justify-center overflow-hidden w-screen  ">
-        <div className="flex gap-6 md:w-full w-[100%] -mx-7 md:m-0  scrollbar-hide px-6">
+        <div className="flex gap-6  w-[90%] md:w-[90%] -mx-7 md:m-0   px-6">
           {tabs.map((tab) => (
             <motion.div
               key={tab.id}
-              animate={{ y: activeTab === tab.id ? -50 : 0, opacity: activeTab === tab.id ? 1 : 0.6,x:`${offset}%`}}
+              animate={{ y: activeTab === tab.id ? -50 : 0, opacity: activeTab === tab.id ? 1 : 0.6,x:`calc(${offset}% - 20px)`}}
               transition={{
-                type: "tween",
-                stiffness:30,
-                ease: "easeInOut",
-                duration:1,
-                y: { delay: 0.5 }, 
+                type: "spring",
+                stiffness:20,
+                damping:300,
+                ease: "easeIn",
+                duration:2,
+                y: { delay: 0.15 }, 
                 opacity: { delay: 0 }, 
                 x: { delay: 0 } 
               }}
