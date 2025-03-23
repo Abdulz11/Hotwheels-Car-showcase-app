@@ -19,7 +19,7 @@ export default function Home() {
           {/* Hero Section */}
           <header className="text-center py-20 px-6 w-[60%]  mx-auto space-y-16 md:space-y-14 ">
             <p className="sm:font-bold font-medium sm:text-base text-sm font-['Plus Jakarta Sans'] text-center w-full text-[#7191FF]">Leverage on Automation</p>
-            <h1 className="w-full md:w-auto text-3xl md:text-6xl lg:text-7xl font-bold leading-['80px'] ">
+            <h1 className=" md:w-auto text-3xl md:text-6xl lg:text-7xl font-bold leading-['80px'] ">
               AI Models for Business Solutions
             </h1>
             <p className="text-lg text-gray-300 mt-4">

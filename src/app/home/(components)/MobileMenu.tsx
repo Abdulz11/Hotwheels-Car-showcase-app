@@ -1,5 +1,7 @@
 'use client'
 
+import { AnimatePresence } from "motion/react";
+import { motion} from 'framer-motion';
 import { Dispatch, SetStateAction } from "react";
 
 export default function MobileMenu(prop:{isMenuOpen:boolean,setIsMenuOpen:Dispatch<SetStateAction<boolean>>}) {
@@ -8,7 +10,12 @@ export default function MobileMenu(prop:{isMenuOpen:boolean,setIsMenuOpen:Dispat
     const tabs = ["Model","Pricing","About Us",'Contact Us','Custom Models']
 
     return(
-       isMenuOpen && <div 
+    <AnimatePresence>
+       {isMenuOpen && <motion.div
+       initial={{ opacity: 0, y: -20 }} 
+       animate={{ opacity: 1, y: 0 }} 
+       exit={{ opacity: 0, y: 20 }} 
+       transition={{ duration: 0.3, ease: "easeInOut" }} 
         className="fixed inset-0 bg-black bg-opacity-[0.93] flex flex-col justify-center items-center z-50 text-white text-3xl"
         onClick={() => setIsMenuOpen(false)} 
         >
@@ -30,6 +37,7 @@ export default function MobileMenu(prop:{isMenuOpen:boolean,setIsMenuOpen:Dispat
             {tab}
             </button>
         ))}
-        </div>
+        </motion.div>}
+    </AnimatePresence>
     )
 }
